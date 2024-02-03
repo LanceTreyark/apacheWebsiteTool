@@ -20,7 +20,7 @@ read -p "What is the domain name? (ie: example.com):   " webDomainName
 echo ""
 read -p "What is your administrative email?:   " webAdminEmail
 echo ""
-<<comment
+
 echo "Creating a site directory for $webDomainName"
 sudo mkdir -p /var/www/$webDomainName/public_html
 echo "-----------------------------------------------"
