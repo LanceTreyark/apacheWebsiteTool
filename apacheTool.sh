@@ -4,7 +4,7 @@
 # nano apacheTool.sh
 
 # Step 2 - Make the script executable with the following command: 
-# sudo chmod apacheTool.sh
+# sudo chmod +x apacheTool.sh
 
 # Step 3 - Run this script with the following command:
 # ./apacheTool.sh
