@@ -81,3 +81,4 @@ cd /var/www/$webDomainName/public_html
 # echo "Moving the files to the web directory"
 # sudo cp -a /tmp/htmlSamplePage/. /var/www/$webDomainName/public_html/ 
 echo "The script has concluded, go ahead and check $webDomainName"
+cd /var/www/$webDomainName/public_html
