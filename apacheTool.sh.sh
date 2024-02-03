@@ -1,8 +1,15 @@
 #!/bin/bash
-# nano v2.0a7f_DeployWebsiteV3.sh
-# sudo chmos +x v2.0a7f_DeployWebsiteV3.sh
-# ./v2.0a7f_DeployWebsiteV3.sh
-#
+
+# Step 1 - Create a file and paste the contents of this file into it with:
+# nano apacheTool.sh
+
+# Step 2 - Make the script executable with the following command: 
+# sudo chmod apacheTool.sh
+
+# Step 3 - Run this script with the following command:
+# ./apacheTool.sh
+
+# This is Version 4 (2.3.24)
 
 echo "The following script configures an Apache webserver to deploy a new webpage "
 echo "for a given domain name you provide, in addition it provides an SSL certificate."
@@ -48,8 +55,8 @@ echo "--------------------------------------------"
 sudo ls /etc/apache2/sites-available
 echo "--------------------------------------------"
 echo " "
-echo "Configure permissions for the Web directory"
-sudo chown -R www-data:www-data /var/www/$webDomainName/public_html
+#echo "Configure permissions for the Web directory"
+#sudo chown -R www-data:www-data /var/www/$webDomainName/public_html
 echo " "
 echo "Enable Website and Obtain SSL Certificate"
 sudo a2ensite $webDomainName.conf
@@ -63,13 +70,14 @@ echo " "
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 echo "The script has concluded."
-echo "Preparing to deploy landing page..."
-comment
-mkdir /tmp/htmlSamplePage
-  echo "Creating a Sample page in the web directory for $webDomainName"
-  curl -o /tmp/htmlSamplePage/index.html https://raw.githubusercontent.com/LanceTreyark/sampleLandingPage/main/index.html
-  curl -o /tmp/htmlSamplePage/styles.css https://raw.githubusercontent.com/LanceTreyark/sampleLandingPage/main/styles.css
-  curl -o /tmp/htmlSamplePage/robots.txt https://raw.githubusercontent.com/LanceTreyark/sampleLandingPage/main/robots.txt
-  echo "Moving the files to the web directory"
-  sudo cp -a /tmp/htmlSamplePage/. /var/www/$webDomainName/public_html/
-  echo "The script has concluded, go ahead and check $webDomainName"
+echo "moving you to the new directory now..."
+cd /var/www/$webDomainName/public_html
+# echo "Preparing to deploy landing page..."
+# mkdir /tmp/htmlSamplePage
+# echo "Creating a Sample page in the web directory for $webDomainName"
+# curl -o /tmp/htmlSamplePage/index.html https://raw.githubusercontent.com/LanceTreyark/sampleLandingPage/main/index.html
+# curl -o /tmp/htmlSamplePage/styles.css https://raw.githubusercontent.com/LanceTreyark/sampleLandingPage/main/styles.css
+# curl -o /tmp/htmlSamplePage/robots.txt https://raw.githubusercontent.com/LanceTreyark/sampleLandingPage/main/robots.txt
+# echo "Moving the files to the web directory"
+# sudo cp -a /tmp/htmlSamplePage/. /var/www/$webDomainName/public_html/ 
+echo "The script has concluded, go ahead and check $webDomainName"
